@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+- Development branch established; future changes will be logged here before release
+
 ## [1.0.0] - 2026-05-27
 
 ### Added
