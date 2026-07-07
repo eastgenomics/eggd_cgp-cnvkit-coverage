@@ -2,8 +2,15 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-07-07
+
 ### Changed
-- Development branch established; future changes will be logged here before release
+- Replaced PyPI virtual environment install with Docker image (`cgp-cnvkit:1.0.0`) to ensure reproducible CNVkit environment and eliminate Ubuntu 24.04 system-package conflicts
+- CNVkit version: master commit `fc65941d` (packaged in Docker image)
+- Expanded sanity check comments to explain NLINES and MEDIAN_DEPTH checks
+
+### Removed
+- Virtual environment install step (superseded by Docker)
 
 ## [1.0.0] - 2026-05-27
 
