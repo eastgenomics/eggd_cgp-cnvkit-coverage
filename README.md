@@ -18,8 +18,8 @@ genome-wide CNV backbone (~57,000 SNP probes at 50 kb spacing). Off-target reads
 gene panel fall partly on backbone probe positions and would produce inflated, unreliable
 antitarget depth. The backbone genome-wide signal is handled by a separate tool (PURPLE).
 
-CNVkit is installed from PyPI at job start via a virtual environment to avoid conflicts
-with Ubuntu 24.04 system-managed packages.
+CNVkit is executed via a Docker image (`cgp-cnvkit:1.0.0`) loaded from DNAnexus at job
+start, ensuring a reproducible environment independent of Ubuntu 24.04 host packages.
 
 ## What are the typical use cases for this app?
 
@@ -75,12 +75,8 @@ All samples in a cohort can be submitted simultaneously (one job per sample).
 
 ## Dependencies
 
-CNVkit is installed from PyPI at job start:
-```
-python3 -m venv /tmp/cnvkit-env
-/tmp/cnvkit-env/bin/pip install cnvkit
-```
-CNVkit version in use: **0.9.13** (latest stable at time of deployment).
+CNVkit is executed via Docker image `cgp-cnvkit:1.0.0` (stored in DNAnexus,
+loaded at job start). CNVkit version: master commit `fc65941d`.
 No R is required for this step.
 
 ## Notes
