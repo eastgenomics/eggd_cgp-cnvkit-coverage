@@ -2,11 +2,12 @@
 
 ## [Unreleased]
 
-## [2.0.1] - 2026-07-10
+## [2.0.1] - 2026-07-11
 
 ### Fixed
 - Median depth sanity check now correctly fails the job when median depth is 0 (previously logged only; not enforced)
-- Updated sanity check comment to accurately describe both failure conditions
+- Replaced awk ternary expression with python3 if-block for the median depth check to ensure reliable execution in the DNAnexus job environment
+- Updated sanity check comments to accurately describe both failure conditions
 
 ## [2.0.0] - 2026-07-07
 
