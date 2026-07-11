@@ -47,8 +47,8 @@ main() {
     # NLINES > 1000 confirms CNVkit produced output for most panel targets
     # (the Twist CGP panel has ~20,000 intervals; a near-empty file indicates
     # a BAM/BED mismatch such as mismatched chromosome naming).
-    # MEDIAN_DEPTH is logged for QC — very low values (<10x) suggest the sample
-    # failed sequencing or the wrong BAM was provided.
+    # MEDIAN_DEPTH > 0 confirms reads mapped to panel targets; zero depth
+    # indicates a BAM/BED chromosome naming mismatch (e.g. chr-prefix vs no-prefix).
     NLINES=$(wc -l < "${sample_id}.targetcoverage.cnn")
     echo "[coverage] Output lines (incl. header): ${NLINES}"
     [ "${NLINES}" -gt 1000 ] || { echo "ERROR: coverage file too small (${NLINES} lines)"; exit 1; }
@@ -65,6 +65,8 @@ depths.sort()
 print(f'{depths[len(depths)//2]:.1f}' if depths else '0')
 ")
     echo "[coverage] Median depth: ${MEDIAN_DEPTH}"
+    awk "BEGIN { exit (${MEDIAN_DEPTH}+0 > 0) ? 0 : 1 }" \
+        || { echo "ERROR: median depth is 0 — check BAM/BED chromosome naming (depth=${MEDIAN_DEPTH})"; exit 1; }
 
     # ── Upload output ─────────────────────────────────────────────────────────
     coverage_cnn=$(dx upload "${sample_id}.targetcoverage.cnn" --brief)

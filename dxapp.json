@@ -3,9 +3,9 @@
   "title": "eggd_cgp-cnvkit-coverage",
   "summary": "Computes CNVkit on-target read coverage for one tumour-only CGP panel sample (amplicon mode). Output .targetcoverage.cnn feeds eggd_cgp-cnvkit-pon (PoN build) or eggd_cgp-cnvkit-batch (analysis).",
   "dxapi": "1.0.0",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "properties": {
-    "githubRelease": "2.0.0"
+    "githubRelease": "2.0.1"
   },
   "inputSpec": [
     {

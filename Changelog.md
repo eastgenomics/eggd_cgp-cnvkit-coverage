@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-07-10
+
+### Fixed
+- Median depth sanity check now correctly fails the job when median depth is 0 (previously logged only; not enforced)
+- Updated sanity check comment to accurately describe both failure conditions
+
 ## [2.0.0] - 2026-07-07
 
 ### Changed
