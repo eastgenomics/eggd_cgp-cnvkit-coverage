@@ -65,8 +65,12 @@ depths.sort()
 print(f'{depths[len(depths)//2]:.1f}' if depths else '0')
 ")
     echo "[coverage] Median depth: ${MEDIAN_DEPTH}"
-    awk "BEGIN { exit (${MEDIAN_DEPTH}+0 > 0) ? 0 : 1 }" \
-        || { echo "ERROR: median depth is 0 — check BAM/BED chromosome naming (depth=${MEDIAN_DEPTH})"; exit 1; }
+    if python3 -c "import sys; sys.exit(0 if float('${MEDIAN_DEPTH}') > 0 else 1)"; then
+        : # depth is non-zero, continue
+    else
+        echo "ERROR: median depth is 0 - check BAM/BED chromosome naming (depth=${MEDIAN_DEPTH})"
+        exit 1
+    fi
 
     # ── Upload output ─────────────────────────────────────────────────────────
     coverage_cnn=$(dx upload "${sample_id}.targetcoverage.cnn" --brief)
