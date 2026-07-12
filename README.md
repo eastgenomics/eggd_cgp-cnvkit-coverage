@@ -2,7 +2,7 @@
 # eggd_cgp-cnvkit-coverage (DNAnexus Platform App)
 
 Computes CNVkit on-target read coverage for a single tumour-only CGP panel sample.
-Runs as **Step 1** of the three-app CGP CNVkit pipeline:
+Runs as **Step 1** of the three-app CGP CNVkit process:
 
 ```
 eggd_cgp-cnvkit-coverage  (×N, parallel) → eggd_cgp-cnvkit-pon (×1) → eggd_cgp-cnvkit-batch (×N, parallel)
