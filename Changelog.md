@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.0.2] - 2026-07-17
+
+### Removed
+- `target_avg_size` input parameter — accepted by the app but never passed to `cnvkit.py coverage` (which has no `--target-avg-size` argument). Removing prevents silent no-op when users change this value expecting an effect.
+
 ## [2.0.1] - 2026-07-11
 
 ### Fixed

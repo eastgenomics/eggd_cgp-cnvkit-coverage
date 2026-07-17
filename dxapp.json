@@ -3,9 +3,9 @@
   "title": "eggd_cgp-cnvkit-coverage",
   "summary": "Computes CNVkit on-target read coverage for one tumour-only CGP panel sample (amplicon mode). Output .targetcoverage.cnn feeds eggd_cgp-cnvkit-pon (PoN build) or eggd_cgp-cnvkit-batch (analysis).",
   "dxapi": "1.0.0",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "properties": {
-    "githubRelease": "2.0.1"
+    "githubRelease": "2.0.2"
   },
   "inputSpec": [
     {
@@ -41,14 +41,6 @@
         "*.bed"
       ],
       "help": "Target intervals in BED format. Chr-prefix chromosome names required (chr1, chr2 ...). For the Twist Oncology CGP panel, use the deduplicated BED (20,905 intervals after removing 7 coordinate-duplicate rows)."
-    },
-    {
-      "name": "target_avg_size",
-      "class": "int",
-      "label": "Average on-target bin size (bp)",
-      "default": 250,
-      "optional": true,
-      "help": "Target bin size in base pairs. Default 250 bp. Must be consistent across coverage, PoN build, and analysis runs."
     }
   ],
   "outputSpec": [

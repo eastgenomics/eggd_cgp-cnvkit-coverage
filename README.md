@@ -44,7 +44,6 @@ to reduce 20,912 → 20,905 intervals before uploading to DNAnexus.
 | `tumour_bai` | file | ✅ | BAM index (.bai or .bam.bai) |
 | `sample_id` | string | ✅ | Output file stem: `<sample_id>.targetcoverage.cnn` |
 | `baits` | file | ✅ | Gene panel BED (chr-prefix, deduplicated; 20,905 intervals for Twist CGP) |
-| `target_avg_size` | int | ➖ | Target bin size in bp (default: 250). Must match across coverage, PoN, and batch runs. |
 
 ## What are the outputs?
 
@@ -63,7 +62,6 @@ dx run eggd_cgp-cnvkit-coverage \
   -itumour_bai=file-xxxx \
   -isample_id="25330S0047" \
   -ibaits=file-xxxx \
-  -itarget_avg_size=250 \
   --destination "project-xxxx:/cnvkit/coverage/25330S0047/" \
   --instance-type mem1_ssd1_v2_x4 \
   --priority high \
